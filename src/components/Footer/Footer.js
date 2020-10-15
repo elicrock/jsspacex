@@ -4,7 +4,7 @@ import logo from '../../logo.svg';
 
 const Footer = () => (
 	<footer className="footer">
-		<img src={logo}/>
+		<img src={logo} alt="logo Space X" className="logo"/>
 		<nav className="footer-nav">
 			<ul className="list">
 				<li className="item"><a href="/" rel="noopener noreferrer" target='_blank' className="item-link">Elon Musk Twitter</a></li>
