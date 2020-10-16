@@ -23,6 +23,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.updateRocket();
+    this.updateCompanyInfo();
   }
 
   updateRocket() {
@@ -43,13 +44,18 @@ class App extends React.Component {
     }, this.updateRocket);
   }
 
+  updateCompanyInfo(){
+    this.fetchData.getCompany()
+    .then(company => {this.setState({company})})
+  }
+
   render() {
     return (
       <>
         <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
         <Main rocket={this.state.rocket} />
-        <Features rocketFeatures={this.state.rocketFeatures}/>
-        <Footer />
+        {this.state.rocketFeatures && <Features {...this.state.rocketFeatures}/>}
+        {this.state.company && <Footer {...this.state.company.links} />}
       </>
     );
   }
